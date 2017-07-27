@@ -142,7 +142,12 @@ defaultContentLanguageInSubdir = false
   [[params.social]]
     icon = "github"
     icon_pack = "fa"
-    link = "//github.com/bkellman"
+    link = "https://github.com/bkellman"
+	
+  [[params.social]]
+    icon = "linkedin"
+    icon_pack = "fa"
+    link = "https://www.linkedin.com/in/benjamin-kellman-97ab9392/"
 
 
 # Navigation Links
