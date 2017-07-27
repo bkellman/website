@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Autism Diagnosis on Academic</title>
+    <link>https://example.com/tags/autism-diagnosis/</link>
+    <description>Recent content in Autism Diagnosis on Academic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016 Your Name</copyright>
+    <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/autism-diagnosis/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Transform Autism through Early Diagnosis</title>
+      <link>https://example.com/project/blood-based-autism-diagnosis/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/project/blood-based-autism-diagnosis/</guid>
+      <description>&lt;p&gt;Blood leukocyte gene expression base early diagnostic for Autism – Nathan Lewis, Eric Couchesne
+In this project we are examining leukocyte RNAseq data collected from toddles evaluated at the Autism Center for Excellence. Subjects have had a comprehensive range of behavior phenotyping over the first several years of life. We hope to uncover the intrinsic dimensiality of the behavior-space defining Autism. We will create an informative diagnostic and prognostic tool for Autiqm by associating those composite behaviors with gene group regulation.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
