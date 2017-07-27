@@ -21,8 +21,8 @@ defaultContentLanguageInSubdir = false
 [params]
   name = "Ben Kellman"
   role = "Ph.D. Student in Bioinformatics and Systems Biology"
-  organization = "UC, San Diego"
-  organization_url = ""
+  organization = "Lewis Lab at UC, San Diego"
+  organization_url = "http://lewislab.ucsd.edu/"
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
   email = "bkellman]at[eng.ucsd(dot)edu"
@@ -154,25 +154,25 @@ defaultContentLanguageInSubdir = false
   url = "#about"
   weight = 1
 
-[[menu.main]]
-  name = "Publications"
-  url = "#publications_selected"
-  weight = 2
+#[[menu.main]]
+#  name = "Publications"
+#  url = "#publications_selected"
+#  weight = 2
 
-[[menu.main]]
-  name = "Posts"
-  url = "#posts"
-  weight = 3
+#[[menu.main]]
+#  name = "Posts"
+#  url = "#posts"
+#  weight = 3
 
 [[menu.main]]
   name = "Projects"
   url = "#projects"
   weight = 4
 
-[[menu.main]]
-  name = "Teaching"
-  url = "#teaching"
-  weight = 5
+#[[menu.main]]
+#  name = "Teaching"
+#  url = "#teaching"
+#  weight = 5
 
 [[menu.main]]
   name = "Contact"
