@@ -13,7 +13,7 @@ title = "Human milk oligosaccharide composition predicts risk of necrotising ent
 url_code = "https://github.com/bkellman/NEC_HMO"
 #url_dataset = "#"
 url_pdf = "https://bkellman.github.io/img/gutjnl-2016-312819.full.pdf"
-url_project = "project/NEC-HMO/"
+url_project = "https://bkellman.github.io/project/nec-hmo/"
 #url_slides = "#"
 #url_video = "#"
 
