@@ -9,7 +9,7 @@ footnotereturnlinkcontents = "<sup>^</sup>"
 disqusShortname = ""
 
 # Enable analytics by entering your Google Analytics tracking ID
-googleAnalytics = ""
+googleAnalytics = "UA-103577403-1"
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "en"
@@ -21,6 +21,7 @@ defaultContentLanguageInSubdir = false
 [params]
   name = "Ben Kellman"
   role = "Ph.D. Student in Bioinformatics and Systems Biology"
+ # role_url = "http://bioinformatics.ucsd.edu/"
   organization = "Lewis Lab at UC, San Diego"
   organization_url = "http://lewislab.ucsd.edu/"
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
