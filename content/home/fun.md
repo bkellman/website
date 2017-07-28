@@ -18,11 +18,11 @@ image = "headers/jalama.jpg"
 
 {{< figure src="/img/mtb.jpg" >}}
 
-
-
 ### Mountain Bike Racing
 - 2017 *Kenda Cup West Champion* for cross-country mountain biking, category 3, men 25-29
 - 2016 *California State Champion* for cross-country mountain biking, category 3, men 25-29	
-	
+
+{{< figure src="/img/doubletetrispic.jpg" >}}
+
 ### Coding
 - [Double Tetris](https://bkellman.github.io/img/DoubleTetris.jar)
