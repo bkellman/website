@@ -50,10 +50,10 @@ weight = 1
 
 # About
 
-Ben Kellman is a Ph.D. student in Bioionformatics and Systems Biology at the University of California, San Diego working in [the Lewis Lab for Systems Biology and Cell Engineering](http://lewislab.ucsd.edu/).
+Ben Kellman is a Ph.D. student in [Bioionformatics and Systems Biology](http://bioinformatics.ucsd.edu/) at the University of California, San Diego working in [the Lewis Lab for Systems Biology and Cell Engineering](http://lewislab.ucsd.edu/).
 He is currently engaged bioinformatic and biostatistical examinations within early diagnosis Autism and diagnosis and early intervention in Necrotizing Enterocolitis. 
 
 Ben uses the computation toolbox for its power and potential in the hopes of expanding beyond the constraints of classical molecular biology where he was originally trained.
 Ben works to leverage the wealth of existing biological knowledge in combination with high-throughput datasets, in the hopes of bringing the riggor of classical molecular biology to the high-throughput scales of bioinformatics while mitigating the false-discovery of popular covariaence-driven approaches.
 
-In his free time, Ben is an avid cyclist and scientific advocate. He was the 2016 the California State Champion for cross-country mountain biking, category 3, men 25-29. He also organized the 2017 [AAAS: Give Science a Voice Ride](https://www.aaas.org/page/biking-science) from San Diego to San Francisco. The ride involved professors, post-docs and graduate students from UCSD and UCLA. Raising over $5,500 and riding over 700 miles, Ben is looking forward to expanding the ride next year.
+In his free time, Ben is an avid cyclist and scientific advocate. He was the 2016 the California State Champion for cross-country mountain biking, category 3, men 25-29. He also organized the 2017 [AAAS: Give Science a Voice Ride](http://science.sciencemag.org/content/357/6349/365.full) from San Diego to San Francisco. The ride involved professors, post-docs and graduate students from UCSD and UCLA. Raising over $5,500 and riding over 700 miles, Ben is looking forward to expanding the ride next year.
