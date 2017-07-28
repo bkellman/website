@@ -179,11 +179,16 @@ defaultContentLanguageInSubdir = false
   name = "News"
   url = "#news"
   weight = 5
+  
+[[menu.main]]
+  name = "Fun"
+  url = "#fun"
+  weight = 5
 
 [[menu.main]]
   name = "Contact"
   url = "#contact"
-  weight = 6
+  weight = 7
 
 # Taxonomies.
 [taxonomies]
