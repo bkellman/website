@@ -6,7 +6,8 @@ enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
 
 # Enable comments by entering your Disqus shortname
-disqusShortname = ""
+disqusShortname = "bkellman-github-io"
+
 
 # Enable analytics by entering your Google Analytics tracking ID
 googleAnalytics = "UA-103577403-1"

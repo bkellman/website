@@ -16,64 +16,91 @@ caption = ""
 
 ## *opinion currently under-review (as of 8/7/2016)*
 
-A friend pointed out to me recently that I should not be using FPKM for between sample comparisons and sent me [*this blog post*](https://haroldpimentel.wordpress.com/2014/12/08/in-rna-seq-2-2-between-sample-normalization/). I had some thoughts about its validity and wanted to write them down.
+A friend pointed out to me recently that I should not be using FPKM for between sample comparisons and sent me [*this blog post*](https://haroldpimentel.wordpress.com/2014/12/08/in-rna-seq-2-2-between-sample-normalization/). 
 
-I believe the example used in this blogpost is not an reasonable. This prompted me to play a bit with the numbers and examine the robustness of FPKM in this respect.
+# The example that caught my attention
 
-Clearly, FPKM (or library normalized counts) breaks down at 5 genes when 1 has a 20-fold increase in differential expression. That breakdown is indicated by the differential expression induced in all the other, stabely expressed, genes.
-I've retooled the example above in general terms: 
-Normalized Count Treatment = Count_Gene_i / (Count_Gene_i x StableGenes + Count_Gene_Funky x FunkyGenes) 
+The example in the blogpost sparked my interest. This prompted me to play a bit with the numbers and examine the robustness of library-size normalization given various challenges.
 
+As illustrated in the blogpost, library normalized counts breaks down at 5 genes when 1 has a 20-fold increase in differential expression. That breakdown is indicated by the differential expression induced in all the other, stabely expressed, genes. For any stably expressed gene, we would expect the differential expression between the control and experimental condition to be nominal: $E[FC_{stable}]=1$. We can denote library normalized counts for gene $i$ in the control condition as $C_i$ and library normalized counts for gene $i$ in the experimental condition as $C_i'$. Counts for stable, $s$, genes will be expected to remain constant across conditions: $E[FC_s] = C_s'/C_s = 1$. While counts for differentially expressed ("funky") genes will expect to diverge across conditions: $E[FC_f]= C_f'/C_f \not= 1$. Let's begin with the assumption that $E[FC_s] = 1$.
 
-$$NC_t = C_i / (C_i G_s + C_f G_f)$$
-$$NC_t = 5/(5(5)+75(1)) = 0.05$$
+$$E[FC_s] =  C_s'/C_s = 1$$
 
+We know that given raw counts, $R$, and a library of counts from $G$ genes, 
+$$C_s =  \frac{\text{stable gene $i$ counts}}{ \text{total counts}} = \frac{R_s}{ \sum_G R_i}$$
 
-The concern is that this number diverges from the previous normalized count though it shouldn't: 
-$$NC_c = 0.16 = 2/(2(5)+2(1))$$
+We can now ask if $E[FC_s] = C_s'/C_s = 1$ as expected in the given example in the blogpost.
 
-**As was pointed out in the blogplost, $NC_t \not= NC_c$ and that is incorrect.**
+$$ FC_s = \frac{C_s'}{C_s} = \frac{ \frac{R_s'}{ \sum_G R_i'}} {\frac{R_s}{ \sum_G R_i} } = 
+\frac{ \frac{2}{ 10}} {\frac{6}{100} } = 3.\overline{3} \not=1
+ $$
+ 
+Clearly, in the given example, $FC_s\not=1$, indicating that the stable genes are erroneously differentially expressed. It is at this point, I noted some curious properties of this example including: **(1)** the extreme of the average fold-change of the differentially expressed gene ($\bar{FC_f}=20$), **(2)** the 10-fold difference in library size, and **(3)** that 25% of the genes were differentially expressed. **Of course, this was just an example, but I was curious, which if any of these factors were important to the performance of library-size normalization.**
+ 
+------------
+## A little generalization to get us going
 
-We can specify the expected Fold-Change for Stable genes as:
- $$E[FC] =  NC_t / NC_c $$
-using "'" to denote the shift is observed expression, we can expand Fold change of a stable gene to:
+Total counts, $\sum_G R_i$, can be expanded to seperate differentially expressed, $F$, and stable, $S$, genes by multiplying the expected counts by the number of differentially expressed and stable genes, $G_f$ and $G_s$ respectively.
 
-$$E[FC] = \frac{ C_i' / (C_i'  G_s + C_f'  G_f) }{ C_i / (C_i  G_s + C_f  G_f) }$$
+$$C_s = \frac{R_s}{ \sum_G R_i} = \frac{R_s}{ E[R_s]G_s + E[R_f]G_f}$$
 
-in the control condition $C_f = C_i$. So we can rewrite the above fold change as:
+**This generalization allows us to expand and reorganize our understanding of influences over the expected fold change for stable genes, $E[FC_s]$.$$ We can rewrite $E[FC_s]$ in terms of raw counts and gene number:
 
-$$ = \frac{ C_i' / (C_i' G_s + C_f' G_f) }{ C_i / (C_i G_s+G_f) } $$
+$$E[FC_s] = C_s'/C_s = 1$$
+$$E[FC_s] = \frac{\frac{R_s'}{ \sum_G R_i'}}{\frac{R_s}{ \sum_G R_i}} = 
+\frac{R_s'/ (E[R_s']G_s + E[R_f']G_f)}{R_s/ (E[R_s]G_s + E[R_f]G_f)} = 1$$
 
-$$= \frac{ C_i' / (C_i' G_s + C_f' G_f) } { 1 / (G_s+G_f) } $$
+**In the control condition we can assume that $E[R_s]=E[R_f]$.** This may sound odd but in the control condition, the cell has not been aggitated in any mannor that would distinguish stable genes for the genes that will be differentially expressed. Therefore, the genes that will be differentially expressed should be indistinguishable from those that wont be differetially expressed. Therefore:
 
-
-$$= \frac{ C_i' }{ (C_i' G_s + C_f' G_f) }  {  (G_s+G_f) }$$
-
-We can simplify by assuming that the funky genes will have an average of a 20-fold increase in expression. An average fold change of 20 is actually a good indication that there is something wrong with your design but I will get to that in a moment). Therefore $C_f' = 20C_i'$
-
-$$= \frac{ C_i' }{ (C_i' G_s + 20 C_i' G_f) }  {  (G_s+G_f) }$$
-
-
-$$= \frac{ 1 }{ ( G_s + 20 G_f) }  {  (G_s+G_f) }$$
-
-
-$$= \frac{  (G_s+G_f)}{( G_s + 20  G_f) } $$
-
-**Actually, an expected or "average" value for fold change is 1.** There should be some upregulated, some down regulated, but on average, the expected fold-change of significantly differentially expressed genes is 1. That means that, on average, in a well-designed experiment: $E[C_f'] = 1C_i'$
-$$E[FC]= \frac{  (G_s+G_f)}{( G_s + G_f) } = 1$$
-
-**Once we correct the irregularly high fold change, the expected Fold-Change for Stable genes $E[FC]= 1$**
-
-**Let's ignore the issue of the unrealistic fold-change for a moment**
-
-We should also consider that $G_f <<< G_s$. While $G_f$ is considered high if it comes close to 1,000 differentially expressed genes, $G_s$ in humans is typically between 20,000 and 150,000 depending on the annotation.
-Therefore, we can say that there are 2-4 orders of magnitude seperating $G_f$ and $G_s$. Considering this, we can maintain the non-zero average fold change and approximate the above statement as:
-
-$$= \frac{  G_s+G_f}{ G_s + 20  G_f } $$
-$$= \frac{  G_s+\epsilon}{ G_s + 20 \epsilon } $$
-$$= \frac{  G_s}{ G_s  } $$
+$$E[FC_s] = \frac{R_s'/ (E[R_s']G_s + E[R_f']G_f)}{R_s/ (E[R_s]G_s + E[R_f]G_f)} $$
+$$ = \frac{R_s'/ (E[R_s']G_s + E[R_f']G_f)}{R_s/ (E[R_s]G_s + E[R_s]G_f)} $$
+$$ = \frac{R_s'/ (E[R_s']G_s + E[R_f']G_f)}{1/ (G_s + G_f)} $$
+$$ = \frac{R_s'(G_s + G_f)}{ (E[R_s']G_s + E[R_f']G_f)} $$
 
 
-Again, we find that with a realistic ratio of $G_f:G_s$, we expect a fold-change in stable genes close to 1 with a margin of error of 2-4 orders of magnitude.
+We can further generalize the expected expression of the differentially expressed genes, $E[R_f']$, by describing them as a scaling on the base expression, $E[F_f]$. Since the base expression is a raw measurement in a different sized library, this is not an ideal comparison. We recall from earlier that $E[R_s]=E[R_f]$ in the unperturbed condition. **To further this generalization, we extend the equation $E[R_s]=E[R_f]$ to account for divergence by some fold-change, $f$, from the average base expression in the experimental condition:
+$$ E[R_f'] = f(E[R_s']) $$
 
-The problem with this example is it assumes a poorly designed or poorly controlled experiment where the average differential expression is 20-fold. If we, remove this mistake from the example, stable gene differential expression goes to 1 which is correct.
+This equation allows us to further simplify our expression for $E[FC_s]$:
+$$E[FC_s] = \frac{R_s'(G_s + G_f)}{ (E[R_s']G_s + E[R_f']G_f)} $$
+$$E[FC_s] = \frac{R_s'(G_s + G_f)}{ (E[R_s']G_s + f(E[R_s'])G_f)} $$
+$$E[FC_s] = \frac{(G_s + G_f)}{ (G_s + fG_f)} $$
+
+$E[FC_s]$ is now in a more maliable form and we can begin to make some hypotheses reguarding when library-size normalization may fail.
+
+
+# Stuff I think:
+
+## (1) Influence of average fold-change of differentially expressed genes
+
+- $E[FC_s]$ is inversely proportional to $f$.
+- But $E[f]=0$ [cite or explain]. therefore, in a well designed typical experiment there is no influence
+
+$$E[FC_s] = \frac{(G_s + G_f)}{ (G_s + fG_f)} $$
+$$ = \frac{(G_s + G_f)}{ (G_s + (1)G_f)} $$
+$$ = \frac{(G_s + G_f)}{ (G_s + G_f)} = 1 $$
+
+## (2) Influence of average library-size difference 
+
+- No terms indicating the library size survive to this description of the E[FC_s] therefore, following the assumptions noted above, we expect no influence of library-size on E[FC_s] in library-size normalized samples.
+
+## (3) Influence of the proportion of differentially expressed genes
+
+- The potential influence of $f$ noted in section (1), is scaled by the magnitude of $G_f$. When $G_f$ is small relative to $G_s$, the potential influcence of a non-zero $f$ will be mitigated. 
+- It is typically the case that $G_f<<G_s$ since, typically, the cell is not completely transformed. In a carefully controlled experiment when only a portion of a response network is differentially expressed, truly differentially expressed genes can be on the order of 10. While interfering with global regulators like p300 could result in thousands of differentially expressed genes.
+- In an experiment where $E[f]\not=0$, it is important that $G_f<<G_s$, otherwise they will compound to induce differential expression in stable genes.
+
+# Conclusion 
+
+If $E[f]\not=0$ and the number of differentially expressed gens is not small, library-size normalization is not reliable and will induce differential expression in stable genes.
+
+
+
+--------------------------------------------------
+
+## Concerns
+
+- Is $x/E[x] = 1$? If I'm looking at E[FC] should I be using R or E[R] in the numerator?
+
+
+
