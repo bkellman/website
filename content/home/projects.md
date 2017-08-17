@@ -26,12 +26,8 @@ view = 1
 #  tag = "*"
   
 #[[filter]]
-#  name = "Deep Learning"
-#  tag = ".deep-learning"
-
-#[[filter]]
-#  name = "Other"
-#  tag = ".demo"
+#  name = "NEC"
+#  tag = ".normalization"
 
 +++
 

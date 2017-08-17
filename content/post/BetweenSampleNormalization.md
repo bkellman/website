@@ -15,6 +15,7 @@ caption = ""
 +++
 
 ## *opinion currently under-review (as of 8/7/2016)*
+Written by *Ben Kellman*
 
 A friend pointed out to me recently that I should not be using FPKM for between sample comparisons and sent me [*this blog post*](https://haroldpimentel.wordpress.com/2014/12/08/in-rna-seq-2-2-between-sample-normalization/). 
 

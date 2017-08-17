@@ -15,6 +15,7 @@ caption = ""
 +++
 
 ## *opinion currently under-construction (as of 8/15/2016)*
+## *if you have something to add, please shoot me an email!
 
 Confusion Matrix|Disease    | No Disease
 --------|--------|------

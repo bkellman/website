@@ -13,10 +13,14 @@ widget = "posts"
 weight = 40
 
 # Show posts that contain the following tags. Default to any tags.
-tags = []
+tags = ["Normalization","AUC"]
 
 # Number of posts to list.
 count = 5
+
+
+
+
 
 +++
 
