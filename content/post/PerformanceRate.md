@@ -14,6 +14,8 @@ caption = ""
 
 +++
 
+## *opinion currently under-construction (as of 8/15/2016)*
+
 Confusion Matrix|Disease    | No Disease
 --------|--------|------
 Test +|True Positive (TP)     | False Positive (FP)
@@ -31,7 +33,7 @@ Test -|$ FN = Pr( X < t \| 1 ) $   | $ TN = Pr( X < t \| 0 ) $
 
 Let's expand $TP$ with the cumulative distribution function (CDF,$\Phi$):
 
-$$TP = Pr(X>t|1) = 1-\Phi(z) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{z} e^{\frac{-t^2}{2}} dt $$
+$$TP = Pr(X>t|1) = 1-\Phi(z) = 1-\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{z} e^{\frac{-t^2}{2}} dt $$
 
 $$TP  = 1-\Phi \left(\frac{t-\mu_1}{\sigma_1}\right) $$
 
@@ -59,3 +61,6 @@ $$ = \frac{\Phi \left(\frac{t-\mu_0}{\sigma_0}\right)}{\Phi \left(\frac{t-\mu_0}
 
 ## Difference between the intersection and derivatives
 > difference in each maximum is the global performance
+
+## Generative AUC (integral of FPR & TPR)
+
