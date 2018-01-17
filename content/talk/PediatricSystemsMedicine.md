@@ -1,7 +1,7 @@
 +++
 #date = "2017-01-01T00:00:00"
 title = "Pediatric Diagnostics: Managing Heterogeneity with Systems Biology"
-abstract = "For this study we examine two pediatric diseases: Necrotising Enterocolitis (NEC) and Autism Spectrum Disorder (ASD). The NEC diagnosis is clearly defined by unregulated cell death in the gut while an ASD diagnosis relies on multiple composite scores approximating subjectively defined behaviors. Here we ask if leveraging systems-level biological information and simplified diagnostic criteria can help cope with the respective challenges of homogeneous  and heterogeneous pediatric disorders. Examining biological disorder on the systems-level can bolster against the incongruities of asynchronous developmental; furthermore, most disorders involve variation in more than one molecule. "
+abstract = "For this study, we examine two pediatric diseases: Necrotising Enterocolitis (NEC) and Autism Spectrum Disorder (ASD). The NEC diagnosis is acutely defined by unregulated cell death in the gut while an ASD diagnosis relies on multiple composite scores approximating subjectively defined behaviors. Here we ask if leveraging systems-level biological information and simplified diagnostic criteria can help cope with the respective challenges of homogeneous and heterogeneous pediatric disorders. Examining biological disorder on the systems-level can bolster against the incongruities of asynchronous developmental; furthermore, most disorders involve variation in more than one molecule. "
 abstract_short = ""
 event = "BISB Qualifying Exam"
 #event_url = "https://example.org"

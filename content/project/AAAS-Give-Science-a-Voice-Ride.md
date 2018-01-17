@@ -53,7 +53,3 @@ I would encourage everyone in and out of academia to join AAAS. Please encourage
 
 We cannot effect change alone! My bike ride is not important, AAAS is. The more members they have, the louder and more unified our voice becomes.
 
-## Unrelated Bike Stuff
-
-- 2016 - California State Champion - Men's Category 3, age 25-29
-- 2017 - Kenda Cup Champion - Men's Category 3, age 25-29

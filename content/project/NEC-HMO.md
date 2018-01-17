@@ -27,5 +27,7 @@ image = "headers/nechmo.jpg"
 
 +++
 
+[published 2017](http://dx.doi.org/10.1136/gutjnl-2016-312819)
+
 A follow up on findings showing the mitigation of Necrotizing Enterocolitis (NEC) in a mouse model after administration of combined Human Milk Oligosaccharide (HMO) as well as a single HMO: DSLNT. We found that consecutive depletion of DSLNT in the mother’s milk was correlated with NEC onset in the infant. This finding is consistent with the pre-clinical rat model suggesting that DSLNT provides a significant protective effect for preterm infants from NEC.
 The project will continue with the prediction of HMO biosynthesis pathways from gene expression data and the examination of microbiome contributions to NEC onset.
