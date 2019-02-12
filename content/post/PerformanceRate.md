@@ -1,6 +1,6 @@
 +++
 date = "2016-04-20T12:00:00"
-draft = true
+draft = false
 tags = ["ROC", "AUC","Sensitivity","Specificty"]
 title = "Classification Performance: The rate of change of Sensitivity and Specificity"
 math = true
