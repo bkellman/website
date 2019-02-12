@@ -7,7 +7,7 @@ event = "BISB Bootcamp"
 #event_url = "https://example.org"
 location = "La Jolla, CA, USA"
 
-draft=false
+draft=true
 
 selected = false
 math = true
